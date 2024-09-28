@@ -1,4 +1,3 @@
-data
 .venv
 *.csv
 indicator_list.txt
@@ -9,3 +8,7 @@ indicator_list.txt
 *.gz
 *.bbl
 *.blg
+*.DS_Store
+**/images
+**/data
+
