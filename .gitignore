@@ -1,14 +1,5 @@
-.venv
 *.csv
 indicator_list.txt
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.gz
-*.bbl
-*.blg
-*.DS_Store
-**/images
+*/images
 **/data
 
