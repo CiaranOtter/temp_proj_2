@@ -2,3 +2,10 @@ data
 .venv
 *.csv
 indicator_list.txt
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.gz
+*.bbl
+*.blg
