@@ -1,5 +1,6 @@
-*.csv
+**.csv
+data/*.pdf
 indicator_list.txt
 */images
-**/data
+report/data
 

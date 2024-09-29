@@ -1,4 +1,6 @@
 mkdir data
+mkdir report/data
+mkdir report/images
 wget https://archive.ics.uci.edu/static/public/2/adult.zip
 unzip -u -d ./data adult.zip
 rm adult.zip
