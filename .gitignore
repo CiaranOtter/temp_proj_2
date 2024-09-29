@@ -3,4 +3,5 @@ data/*.pdf
 indicator_list.txt
 */images
 report/data
-
+data/*
+!data/GHS-2023-PERSON.zip
