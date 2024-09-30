@@ -12,17 +12,18 @@
 \usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{hyperref}
+\usepackage{bookmark}
 \usepackage[utf8]{inputenc}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Template title\\
-{\footnotesize \textsuperscript{*} 
-  Statistical Analysis of Real-World Data: A Hypothesis Testing and Clustering Approach}
+\title{The Impact of Demographics on Employment and Salary\\
+{\footnotesize
+  A Hypothesis Testing and Clustering Approach}
 }
-
 
 \author{\IEEEauthorblockN{Ciaran Otter}
 \IEEEauthorblockA{\textit{Department of Computer science} \\
@@ -30,61 +31,12 @@
 Stellenbosch University,
 Stellenbosch, South Africa\\}
 }
-
 \maketitle
-
-\begin{abstract}
-\end{abstract}
-
-\begin{IEEEkeywords}
-\end{IEEEkeywords}
-
-\section{Introduction}
-The Adult Income dataset, sourced from the UCI Machine Learning Repository, contains demographic and income-related data for individuals in the United States~\cite{adult_2}. 
-The dataset is often used to predict whether a person earns more than \$50,000 annually, based on features such as age, education, occupation, hours worked per week, and others. 
-In this project, we aim to apply statistical techniques to analyze the relationship between various demographic factors and income. Specifically, we investigate the following hypotheses:
-
-
-\begin{enumerate}
-  \item Hypothesis 1: Does education level significantly affect the likelihood of earning more than \$50000 per year?
-  \item Hypothesis 2: Is there a significant difference in hours worked per week between men and women?
-  \item Hypothesis 3: Does race significantly affect the likelihood of earning more than \$50000 per year?
-\end{enumerate}
-
-Each hypothesis is tested using appropriate statistical models. 
-Additionally, unsupervised learning techniques, including K-Means, DBSCAN, and Hierarchical Clustering, are applied to cluster individuals based on various features and explore patterns in the dataset.
-
-\section{Methodology}
-\subsection{Hypothesis Testing}
-\subsubsection{Hypothesis 1: Does Education Level Affect Income?}
-
-\begin{itemize}
-\item Null Hypothesis ($H_0$): Education level does not significantly affect the likelihood of earning more than \$50000 per year.
-\item Alternative Hypothesis ($H_1$): Education level significantly affects the likelihood of earning more than \$50000 per year.
-\end{itemize}
-
-To test this hypothesis, we performed a chi-square test of independence. 
-Since both education level and income are categorical variables, the chi-square test is appropriate to evaluate whether there is a statistically significant association between these variables. 
-Additionally, a logistic regression model was used to assess the predictive power of education level on income.
-
-
-\subsubsection{Hypothesis 2: Does Gender Affect Hours Worked per Week?}
-
-\begin{itemize}
-\item Null Hypothesis ($H_0$): There is no significant difference in the number of hours worked per week between men and women.
-\item Alternative Hypothesis ($H_1$): There is a significant difference in the number of hours worked per week between men and women.
-\end{itemize}
-
-
-
-An independent t-test was employed to compare the mean hours worked by men and women. 
-This test is suitable because it compares the means of two independent groups, assuming the hours worked are normally distributed within each group.
-\section{Results}
-
-\include{data/hyp1_cont_table}
-\include{data/hyp_1_chi_2}
-
-\section{Conclusion}
+\input{Intro}
+\input{methodology}
+\input{results}
+% \input{analysis}
+\input{conclusion}
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}

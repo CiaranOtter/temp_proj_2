@@ -1,0 +1,225 @@
+\section{Results}
+
+\subsection{Hypothesis Testing}
+
+\subsubsection{Hypothesis 1: Education and Employment Status}
+
+\begin{table}[H]
+    \caption{Chi-Square Test Results}
+    \label{tab:chi_square_results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_1_chi_2.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Logistic regression results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_1_log_summary.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_1_log_pred.pdf} % Adjust the path accordingly
+    \caption{Caption for the pdf image.}
+    \label{fig:predicted unemployment for highest academic level}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_1_income_dist.pdf} % Adjust the path accordingly
+    \caption{Caption for the pdf image.}
+    \label{fig:unemployment distribution for unemployment highest academic level}
+\end{figure}
+
+The chi-square test for independence showed a significant relationship between education level and employment status ($\chi^2 = X.XX$, $p < 0.05$). This suggests that higher levels of education are associated with higher employment rates.
+
+\subsubsection{Hypothesis 2: Education and Salary}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_2_norm_dist_income data.pdf} % Adjust the path accordingly
+    \caption{Caption for the pdf image.}
+    \label{fig:Independence test for anova test}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Levene independence test results}
+    \label{tab:Levene test results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_2_welch_res.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Tukey test results}
+    \label{tab:tukey test results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_2_tukey.tex}
+    \end{minipage}
+\end{table}
+
+\subsubsection{Hypothesis 3: Age and Salary}
+
+\begin{table}[H]
+    \centering
+    \caption{Pearson correlation test results}
+    \label{tab:pearson correlation test results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_3_pearson_test.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Robust OLS regresion results}
+    \label{tab:robust ols regression test results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_3_log_summary.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_average_salary.pdf} % Adjust the path accordingly
+    \caption{Average salary vs age}
+    \label{fig:Average salary by age scatter plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp3_salary_by_age_violin.pdf} % Adjust the path accordingly
+    \caption{Violion plot of salary by age group}
+    \label{fig:violion plot of salary by age group}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_average_salary.pdf} % Adjust the path accordingly
+    \caption{Average salary per age group}
+    \label{fig:average salary per age group}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_heat_map.pdf} % Adjust the path accordingly
+    \caption{Heat map of salary distribution by age group}
+    \label{fig:salary distribution heat map}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_facet.pdf} % Adjust the path accordingly
+    \caption{Facet graph of salary distribution by age group}
+    \label{fig:salary distribution facet}
+\end{figure}
+
+\subsubsection{Hypothesis 4: Gender and Salary/Education Level}
+
+\begin{table}[H]
+    \centering
+    \caption{t-test results}
+    \label{tab:t-test results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_4_t_test.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_4_violin.pdf} % Adjust the path accordingly
+    \caption{Violin plot of salary by gender}
+    \label{fig:violin plot of salary by gender}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_4_bar_plot.pdf} % Adjust the path accordingly
+    \caption{Histogram of gender count per highest education level}
+    \label{fig:histogram of gender by education level}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_4_kde_plot.pdf} % Adjust the path accordingly
+    \caption{Frequency of gender per salary}
+    \label{fig:frequency of gender per salary}
+\end{figure}
+
+\subsubsection{Hypothesis 5: Ethnicity and Salary}
+
+\begin{table}[H]
+    \centering
+    \caption{Anova test results}
+    \label{tab:anova results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_5_anova.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_5_violin_plot.pdf} % Adjust the path accordingly
+    \caption{Violin plot of salary distribution by ethnicity}
+    \label{fig:violin plot of salary distribution by ethnicity}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Anova lm test results}
+    \label{tab:anova lm results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_5_anova_lm.tex}
+    \end{minipage}
+\end{table}
+
+\subsection{Clustering}
+
+\subsubsection{K-Means Clustering}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/clustering_k_means_inertia.pdf} % Adjust the path accordingly
+    \caption{Inertia of K means clustering}
+    \label{fig:inertia of k means clustering}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/clustering_k_means_sil.pdf} % Adjust the path accordingly
+    \caption{Silhouette score of K meens clustering}
+    \label{fig:silhouette of k means clustering}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/clustering_k_means.pdf} % Adjust the path accordingly
+    \caption{K-Means clustering of age and salary}
+    \label{fig:kMeans clustering of age and salary}
+\end{figure}
+
+\subsubsection{Hierarchical Clustering}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/clustering_dendrogram.pdf} % Adjust the path accordingly
+    \caption{Hierachical cluster dendrogram of income data}
+    \label{fig:Hierachical cluster dendrogram of income data}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/clustering_dendro_sil.pdf} % Adjust the path accordingly
+    \caption{Silhouette score for Hierachical cluster}
+    \label{fig:Hierachical cluster silhouette score}
+\end{figure}

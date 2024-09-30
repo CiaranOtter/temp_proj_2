@@ -1,0 +1,116 @@
+\section{Methodology and Implementation}
+
+\subsection{Testing Methods}
+
+A variety of statistical tests were employed to evaluate the impact of demographic factors on employment and salary outcomes. The methods applied are outlined below:
+
+\paragraph{$\chi^2$ Test for Independence}
+The $\chi^2$ test evaluates the association between two categorical variables. This test was applied to assess relationships between variables such as \textbf{education level}, \textbf{employment status}, \textbf{gender}, and \textbf{ethnicity}. It determines whether there is a significant dependence between these demographic factors and employment outcomes.
+
+\paragraph{T-Test, ANOVA, and Welch’s Test}
+For continuous variables like \textbf{salary} and \textbf{age}, t-tests and one-way ANOVA were used to compare means across categorical groups. ANOVA was utilized to identify statistically significant differences in means across three or more independent groups, particularly in analyzing relationships between factors like \textbf{education level} and \textbf{ethnicity}.
+
+\paragraph{Q-Q Plot}
+A Q-Q (Quantile-Quantile) plot is a graphical tool used to assess whether a dataset follows a particular theoretical distribution, typically the normal distribution. By plotting the quantiles of the sample data against the quantiles of the normal distribution, the Q-Q plot visually evaluates how well the data aligns with the theoretical distribution. Deviations from the straight line in the Q-Q plot indicate departures from normality, which can affect the validity of parametric tests.
+
+\paragraph{Levene's Test}
+Levene’s test is used to assess the equality of variances across different groups. It evaluates the null hypothesis that the variances are equal between the groups. This test is especially useful in situations where the assumption of homogeneity of variances is critical, such as in ANOVA. If Levene’s test shows significant differences in variances, alternative statistical tests like Welch’s ANOVA, which do not assume equal variances, may be more appropriate. When comparing the means of two groups, Welch’s t-test was used. Unlike the traditional t-test, Welch’s test does not assume equal variances, making it more robust in cases where group variances differ. This approach ensures greater accuracy in testing for significant differences between group means, particularly when the assumption of homogeneity of variance is violated.
+
+\paragraph{Pearson’s Correlation}
+Pearson's correlation coefficient (denoted as \textit{r}) measures the linear relationship between two continuous variables. It ranges from -1 to 1, where values close to 1 indicate a strong positive linear relationship, values close to -1 indicate a strong negative linear relationship, and values near 0 suggest no linear correlation. Pearson's correlation is commonly used to quantify the strength and direction of relationships between variables, such as age and salary.
+
+\paragraph{Tukey’s Honest Significant Difference (HSD) Test}
+Tukey’s HSD test is a post-hoc analysis used after an ANOVA to determine which specific groups' means are significantly different from each other. It controls for Type I error when making multiple comparisons, ensuring that the overall significance level is maintained. This test is useful when comparing multiple group means, such as examining whether different education categories have significantly different average salaries.
+
+\subsection{Hypothesis Testing}
+
+\subsubsection{Hypothesis 1: Education and Employment Status}
+
+\paragraph{Data Preparation}
+The raw form of the \textbf{Education level} variable includes 31 categories, one of which represents a non-applicable value. To make the data more workable, we first removed the NaN values, along with any categories labeled as non-applicable or unspecified. After cleaning, the education categories were grouped into six meaningful levels:
+\begin{itemize}
+    \item No Formal Education 
+    \item Basic Education 
+    \item Intermediate Education 
+    \item Secondary Education 
+    \item Vocational Education 
+    \item Tertiary Education 
+\end{itemize}
+
+\paragraph{$\chi^2$ Test}
+Once categorized, employment status and education level were loaded into a contingency table, and the $\chi^2$ test was applied. The $\chi^2$ test assesses the association between two categorical variables—in this case, education level and employment status. The null hypothesis ($H_0$) assumes no significant relationship between the two variables, while the alternative hypothesis ($H_1$) suggests a significant relationship.
+The $\chi^2$ statistic is determined, which compares the observed frequencies to the expected frequencies under $H_0$.
+The test statistic and accompanying $p$-value is compared to the critical value from the $\chi^2$ distribution table at $\alpha = 0.05$.
+
+If the $p$-value is less than 0.05, the null hypothesis is rejected, indicating a significant relationship between education level and employment status.
+
+\paragraph{Logistic Regression Analysis}
+To investigate the impact of education level on employment likelihood, we employed the Logit model from the \texttt{statsmodels} library. Logistic regression is particularly suited for modeling binary outcomes, which is applicable in this context where employment status is categorized as either employed or not employed following previous preparation.
+
+The logistic regression analysis proceeded through the following steps:
+\begin{enumerate}
+    \item Preprocessing the education categories with a Label Encoder and defining it as the primary predictor of employment status.
+    \item The logistic regression model was fitted using the Logit function from \texttt{statsmodels}.
+    \item Coefficients were estimated via maximum likelihood estimation (MLE), aiming to maximize the likelihood of observing the given data under the model.
+    \item The estimated coefficients revealed the relationship between education level and employment status. A positive coefficient for an education level suggests increased odds of employment, whereas a negative coefficient indicates decreased odds.
+    \item The significance of each coefficient was assessed using Wald tests and their associated \( p \)-values. A \( p \)-value less than \( \alpha = 0.05 \) denoted a significant influence of the corresponding education level on employment likelihood.
+\end{enumerate}
+
+This combined analysis through the $\chi^2$ test and logistic regression with the Logit model from \texttt{statsmodels} allowed for a comprehensive examination of education's impact on employment status, thus providing robust statistical evidence to support our hypothesis testing.
+
+\subsubsection{Hypothesis 2: Education and Salary}
+
+\paragraph{Data Preparation}
+The dataset was analyzed for outliers, revealing a significant outlier that caused considerable skewness during analysis. To address this issue, the 0.1\% and 99.9\% quantiles were dropped from the dataset. Additionally, a variable `lab\_amount` was included, indicating whether an individual was willing to disclose their salary. The dataset was filtered to include only the observations where this value was true.
+
+\paragraph{Levene's Test}
+A Levene's test was conducted to assess the homogeneity of variances, ensuring the appropriateness of ANOVA tests for the data.
+
+\paragraph{Welch's Test}
+A Welch's test was performed to evaluate the hypothesis. If the resultant $p$-value is less than \( \alpha = 0.05 \), the null hypothesis can be rejected, indicating that education level has a statistically significant impact on salary.
+
+\paragraph{Tukey's Multiple Comparison of Means}
+As a post-hoc analysis, Tukey's Honestly Significant Difference (HSD) test was employed to further investigate the validity of the impact of education on salary at a group-specific level. This combined analysis, utilizing the Welch test with support from Tukey's HSD via \texttt{statsmodels}, allowed for a comprehensive examination of education's impact on salary, thus providing robust statistical evidence to support our hypothesis testing.
+
+\subsubsection{Hypothesis 3: Age and Salary}
+
+\paragraph{Data Preparation}
+The dataset was prepared in a manner consistent with previous hypothesis tests, ensuring data integrity and suitability for analysis.
+
+\paragraph{Pearson Correlation}
+Pearson's correlation coefficient was calculated to initially assess the strength and direction of the linear relationship between \textbf{Age} and \textbf{Salary}.
+
+\paragraph{OLS Regression Test}
+The data underwent preprocessing using a StandardScaler to standardize the \textbf{Age} variable. Subsequently, \textbf{Age} was designated as the primary predictor in the Ordinary Least Squares (OLS) regression model aimed at predicting individual salary.
+
+To address potential heteroscedasticity, robust standard errors were implemented. A robust covariance model was employed to obtain robust covariance estimates, specifically using the HC1 covariance type, which adjusts for small sample sizes.
+
+The coefficients of the model were estimated via the OLS method. The statistical significance of the coefficients was evaluated through \( p \)-values, with a threshold of \( p < 0.05 \) indicating significant relationships.
+
+This methodology facilitated a comprehensive analysis of the relationship between age and salary, yielding insights critical for understanding socio-economic dynamics within the labor market.
+
+\subsubsection{Hypothesis 4: Gender and Salary/Education Level}
+
+\paragraph{Data Preparation}
+The dataset contained unspecified values in the \textbf{Gender} field, which were removed. The data was subsequently divided into two groups based on gender, focusing on salary analysis.
+
+\paragraph{Q-Q Test}
+A Q-Q test was conducted to assess the normality of salary distributions within each gender group, considering potential non-homogeneity of variance.
+
+\paragraph{Mann-Whitney U Test}
+Following the Q-Q test, the Mann-Whitney U test was applied to compare salary distributions between genders. This non-parametric test evaluates whether the ranks of salary values differ significantly between the
+
+\subsubsection{Hypothesis 5: Ethnicity and Salary}
+
+\paragraph{Data Preparation}
+The data is grouped by \textbf{Ethnicity}, focusing on the \textbf{Salary}.
+
+\paragraph{Q-Q Test}
+A Q-Q test was conducted to assess the normality of salary distributions within each ethnicity group, considering potential non-homogeneity of variance.
+
+\paragraph{Kruskal-Wallis Test}
+The Kruskal-Wallis test is applied to determine the H statistic, which is a measure of the variance between the ranks of the data points in different groups. After computing the H statistic and the corresponding $p$-value, the results are compared to $\alpha = 0.05$. If the $p$-value is less than $\alpha$, the null hypothesis is rejected, indicating that there is a significant difference in the medians of the groups.
+
+\paragraph{Dunn's Test}
+Dunn's test with Bonferroni correction was then applied to the dataset to further explore the $p$-value and the relationship between \textbf{Ethnicity} and \textbf{Salary}.
+
