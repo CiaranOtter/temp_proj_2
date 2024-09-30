@@ -1,0 +1,13 @@
+\subsubsection{Hypothesis 2: Education and Salary}
+
+\paragraph{Data Preparation}
+The dataset was analyzed for outliers, revealing a significant outlier that caused considerable skewness during analysis. To address this issue, the 0.1\% and 99.9\% quantiles were dropped from the dataset. Additionally, a variable `lab\_amount` was included, indicating whether an individual was willing to disclose their salary. The dataset was filtered to include only the observations where this value was true.
+
+\paragraph{Levene's Test}
+A Levene's test was conducted to assess the homogeneity of variances, ensuring the appropriateness of ANOVA tests for the data.
+
+\paragraph{Welch's Test}
+A Welch's test was performed to evaluate the hypothesis. If the resultant $p$-value is less than \( \alpha = 0.05 \), the null hypothesis can be rejected, indicating that education level has a statistically significant impact on salary.
+
+\paragraph{Tukey's Multiple Comparison of Means}
+As a post-hoc analysis, Tukey's Honestly Significant Difference (HSD) test was employed to further investigate the validity of the impact of education on salary at a group-specific level. This combined analysis, utilizing the Welch test with support from Tukey's HSD via \texttt{statsmodels}, allowed for a comprehensive examination of education's impact on salary, thus providing robust statistical evidence to support our hypothesis testing.

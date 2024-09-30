@@ -1,0 +1,35 @@
+\subsubsection{Hypothesis 1: Education and Employment Status}
+
+\begin{table}[H]
+    \caption{Chi-Square Test Results}
+    \label{tab:chi_square_results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_1_chi_2.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Logistic regression results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_1_log_summary.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_1_log_pred.pdf} % Adjust the path accordingly
+    \caption{Predicted probability of unemployment by Highest level of education group}
+    \label{fig:predicted unemployment for highest academic level}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_1_income_dist.pdf} % Adjust the path accordingly
+    \caption{Income distribution over detailed highest level of education}
+    \label{fig:unemployment distribution for unemployment highest academic level}
+\end{figure}
+
+The chi-square test for independence showed a significant relationship between education level and employment status ($\chi^2 = X.XX$, $p < 0.05$). This suggests that higher levels of education are associated with higher employment rates.

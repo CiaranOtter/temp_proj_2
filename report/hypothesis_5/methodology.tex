@@ -1,0 +1,13 @@
+\subsubsection{Hypothesis 5: Ethnicity and Salary}
+
+\paragraph{Data Preparation}
+The data is grouped by \textbf{Ethnicity}, focusing on the \textbf{Salary}.
+
+\paragraph{Q-Q Test}
+A Q-Q test was conducted to assess the normality of salary distributions within each ethnicity group, considering potential non-homogeneity of variance.
+
+\paragraph{Kruskal-Wallis Test}
+The Kruskal-Wallis test is applied to determine the H statistic, which is a measure of the variance between the ranks of the data points in different groups. After computing the H statistic and the corresponding $p$-value, the results are compared to $\alpha = 0.05$. If the $p$-value is less than $\alpha$, the null hypothesis is rejected, indicating that there is a significant difference in the medians of the groups.
+
+\paragraph{Dunn's Test}
+Dunn's test with Bonferroni correction was then applied to the dataset to further explore the $p$-value and the relationship between \textbf{Ethnicity} and \textbf{Salary}.

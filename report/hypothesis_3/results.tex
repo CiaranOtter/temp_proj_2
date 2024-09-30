@@ -1,0 +1,56 @@
+\subsubsection{Hypothesis 3: Age and Salary}
+
+\begin{table}[H]
+    \centering
+    \caption{Pearson correlation test results}
+    \label{tab:pearson correlation test results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_3_pearson_test.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Robust OLS regresion results}
+    \label{tab:robust ols regression test results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_3_log_summary.tex}
+    \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_average_salary.pdf} % Adjust the path accordingly
+    \caption{Average salary vs age}
+    \label{fig:Average salary by age scatter plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp3_salary_by_age_violin.pdf} % Adjust the path accordingly
+    \caption{Violion plot of salary by age group}
+    \label{fig:violion plot of salary by age group}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_average_salary.pdf} % Adjust the path accordingly
+    \caption{Average salary per age group}
+    \label{fig:average salary per age group}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_heat_map.pdf} % Adjust the path accordingly
+    \caption{Heat map of salary distribution by age group}
+    \label{fig:salary distribution heat map}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_3_facet.pdf} % Adjust the path accordingly
+    \caption{Facet graph of salary distribution by age group}
+    \label{fig:salary distribution facet}
+\end{figure}

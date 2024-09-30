@@ -1,0 +1,16 @@
+\subsubsection{Hypothesis 3: Age and Salary}
+
+\paragraph{Data Preparation}
+The dataset was prepared in a manner consistent with previous hypothesis tests, ensuring data integrity and suitability for analysis.
+
+\paragraph{Pearson Correlation}
+Pearson's correlation coefficient was calculated to initially assess the strength and direction of the linear relationship between \textbf{Age} and \textbf{Salary}.
+
+\paragraph{OLS Regression Test}
+The data underwent preprocessing using a StandardScaler to standardize the \textbf{Age} variable. Subsequently, \textbf{Age} was designated as the primary predictor in the Ordinary Least Squares (OLS) regression model aimed at predicting individual salary.
+
+To address potential heteroscedasticity, robust standard errors were implemented. A robust covariance model was employed to obtain robust covariance estimates, specifically using the HC1 covariance type, which adjusts for small sample sizes.
+
+The coefficients of the model were estimated via the OLS method. The statistical significance of the coefficients was evaluated through \( p \)-values, with a threshold of \( p < 0.05 \) indicating significant relationships.
+
+This methodology facilitated a comprehensive analysis of the relationship between age and salary, yielding insights critical for understanding socio-economic dynamics within the labor market.

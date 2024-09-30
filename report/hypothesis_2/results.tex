@@ -1,0 +1,28 @@
+\subsubsection{Hypothesis 2: Education and Salary}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/hyp_2_norm_dist_income data.pdf} % Adjust the path accordingly
+    \caption{Caption for the pdf image.}
+    \label{fig:Independence test for anova test}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Levene independence test results}
+    \label{tab:Levene test results}
+    \begin{minipage}{\columnwidth}
+        \input{data/hyp_2_welch_res.tex}
+    \end{minipage}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Tukey test results}
+    \label{tab:tukey test results}
+    \begin{minipage}{\columnwidth}
+        \centering
+        \input{data/hyp_2_tukey.tex}
+    \end{minipage}
+\end{table}

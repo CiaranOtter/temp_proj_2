@@ -1,0 +1,33 @@
+\subsubsection{Hypothesis 1: Education and Employment Status}
+
+\paragraph{Data Preparation}
+The raw form of the \textbf{Education level} variable includes 31 categories, one of which represents a non-applicable value. To make the data more workable, we first removed the NaN values, along with any categories labeled as non-applicable or unspecified. After cleaning, the education categories were grouped into six meaningful levels:
+\begin{itemize}
+    \item No Formal Education 
+    \item Basic Education 
+    \item Intermediate Education 
+    \item Secondary Education 
+    \item Vocational Education 
+    \item Tertiary Education 
+\end{itemize}
+
+\paragraph{$\chi^2$ Test}
+Once categorized, employment status and education level were loaded into a contingency table, and the $\chi^2$ test was applied. The $\chi^2$ test assesses the association between two categorical variables—in this case, education level and employment status. The null hypothesis ($H_0$) assumes no significant relationship between the two variables, while the alternative hypothesis ($H_1$) suggests a significant relationship.
+The $\chi^2$ statistic is determined, which compares the observed frequencies to the expected frequencies under $H_0$.
+The test statistic and accompanying $p$-value is compared to the critical value from the $\chi^2$ distribution table at $\alpha = 0.05$.
+
+If the $p$-value is less than 0.05, the null hypothesis is rejected, indicating a significant relationship between education level and employment status.
+
+\paragraph{Logistic Regression Analysis}
+To investigate the impact of education level on employment likelihood, we employed the Logit model from the \texttt{statsmodels} library. Logistic regression is particularly suited for modeling binary outcomes, which is applicable in this context where employment status is categorized as either employed or not employed following previous preparation.
+
+The logistic regression analysis proceeded through the following steps:
+\begin{enumerate}
+    \item Preprocessing the education categories with a Label Encoder and defining it as the primary predictor of employment status.
+    \item The logistic regression model was fitted using the Logit function from \texttt{statsmodels}.
+    \item Coefficients were estimated via maximum likelihood estimation (MLE), aiming to maximize the likelihood of observing the given data under the model.
+    \item The estimated coefficients revealed the relationship between education level and employment status. A positive coefficient for an education level suggests increased odds of employment, whereas a negative coefficient indicates decreased odds.
+    \item The significance of each coefficient was assessed using Wald tests and their associated \( p \)-values. A \( p \)-value less than \( \alpha = 0.05 \) denoted a significant influence of the corresponding education level on employment likelihood.
+\end{enumerate}
+
+This combined analysis through the $\chi^2$ test and logistic regression with the Logit model from \texttt{statsmodels} allowed for a comprehensive examination of education's impact on employment status, thus providing robust statistical evidence to support our hypothesis testing.
